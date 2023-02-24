@@ -61,3 +61,12 @@ FROM
 GROUP BY
     r."name";
 
+/*
+Показать сотрудников у которых фамилия длиннее 10 символов
+ */
+SELECT
+    *
+FROM
+    Employees
+WHERE
+    LENGTH (last_name) > 10;
