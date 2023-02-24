@@ -70,3 +70,18 @@ FROM
     Employees
 WHERE
     LENGTH (last_name) > 10;
+
+/*
+Показать сотрудников с зарплатой выше средней по всей компании
+ */
+SELECT
+    *
+FROM
+    Employees
+WHERE
+    salary > (
+        SELECT
+            AVG(salary)
+        FROM
+            Employees
+    );
