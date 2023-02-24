@@ -46,3 +46,18 @@ FROM
     RIGHT JOIN Departments d ON e.department_id = d.department_id
 GROUP BY
     d."name";
+
+/*
+Посчитать количество работников в каждом регионе
+ */
+SELECT
+    r."name" AS region,
+    COUNT(*)
+FROM
+    Employees e
+    LEFT JOIN Departments d ON e.department_id = d.department_id
+    LEFT JOIN Locations l ON d.location_id = l.location_id
+    LEFT JOIN Regions r ON l.region_id = r.region_id
+GROUP BY
+    r."name";
+
